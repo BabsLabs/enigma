@@ -7,4 +7,5 @@ class Enigma
     encryption_helper(message, key, date)
   end
 
+
 end
