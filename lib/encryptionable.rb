@@ -51,9 +51,10 @@ module Encryptionable
       shift_array.rotate!
     end
 
-    encryption_hash[:encryption]  = encrypted_message.join # Needs changed to encrypted message
+    encryption_hash[:encryption]  = encrypted_message.join
     encryption_hash[:key] = key
     encryption_hash[:date] = date
+    
     encryption_hash
   end
 

@@ -14,18 +14,48 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_can_make_encryption_hash
+
     expected = {
       encryption: "keder ohulw",
       key: "02715",
       date: "040895"
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+
     expected_2 = {
       encryption: "keder ohulw!",
       key: "02715",
       date: "040895"
     }
     assert_equal expected_2, @enigma.encrypt("hello world!", "02715", "040895")
+
+    expected_3 = {
+      encryption: "hello world",
+      key: "00000",
+      date: "00000"
+    }
+    assert_equal expected_3, @enigma.encrypt("hello world", "00000", "00000")
+
+    expected_4 = {
+      encryption: "!!hello world!!",
+      key: "00000",
+      date: "00000"
+    }
+    assert_equal expected_4, @enigma.encrypt("!!hello world!!", "00000", "00000")
+
+    expected_5 = {
+      encryption: "@!$%keder ohulw!",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected_5, @enigma.encrypt("@!$%hello world!", "02715", "040895")
+
+    expected_6 = {
+      encryption: "@!$%leder ohulw!",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected_6, @enigma.encrypt("@!$%iello world!", "02715", "040895")
   end
 
   def test_can_make_decryption_hash
