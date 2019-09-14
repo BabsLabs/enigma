@@ -1,5 +1,5 @@
 require './test/test_helper'
-require 'date'
+require './lib/encryptionable'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
@@ -19,6 +19,12 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+    expected_2 = {
+      encryption: "keder ohulw!",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected_2, @enigma.encrypt("hello world!", "02715", "040895")
   end
 
 end

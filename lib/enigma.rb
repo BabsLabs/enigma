@@ -1,14 +1,10 @@
-class Enigma
+require './lib/encryptionable'
 
-  def initialize
-  end
+class Enigma
+  include Encryptionable
 
   def encrypt(message, key = RandomNumberGenerator.generate_random_key, date = Date.generate_todays_date)
-    encryption_hash = Hash.new
-    encryption_hash[:encryption]  = message # Needs changed to encrypted message
-    encryption_hash[:key] = key
-    encryption_hash[:date] = date
-    encryption_hash
+    encryption_helper(message, key, date)
   end
 
 end

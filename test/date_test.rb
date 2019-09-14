@@ -1,6 +1,5 @@
 require './test/test_helper'
 require './lib/date'
-require 'date'
 
 class DateTest < Minitest::Test
 
