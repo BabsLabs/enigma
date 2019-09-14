@@ -1,0 +1,2 @@
+module Decryptionable
+end
