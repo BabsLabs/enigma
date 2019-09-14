@@ -1,4 +1,4 @@
-require './lib/encryptionable'
+require_relative 'encryptionable'
 
 class Enigma
   include Encryptionable
