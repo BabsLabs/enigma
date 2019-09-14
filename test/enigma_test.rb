@@ -40,6 +40,12 @@ class EnigmaTest < Minitest::Test
                 date: "040895"
                 }
     assert_equal expected_2, @enigma.decrypt("keder ohulw!", "02715", "040895")
+
+    expected_3 = {decryption: "!@$^hello world!",
+                key: "02715",
+                date: "040895"
+                }
+    assert_equal expected_3, @enigma.decrypt("!@$^keder ohulw!", "02715", "040895")
   end
 
 end

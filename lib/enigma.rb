@@ -9,4 +9,8 @@ class Enigma
     encryption_helper(message, key, date)
   end
 
+  def decrypt(cyphertext, key, date = Date.generate_todays_date)
+    decryption_helper(cyphertext, key, date)
+  end
+
 end
