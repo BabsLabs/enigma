@@ -2,6 +2,9 @@ require './test/test_helper'
 require './lib/enigma'
 require './lib/encryptionable'
 require './lib/decryptionable'
+require './lib/date'
+require './lib/random_number_generator'
+require 'mocha/minitest'
 
 class EnigmaTest < Minitest::Test
 
@@ -77,5 +80,27 @@ class EnigmaTest < Minitest::Test
                 }
     assert_equal expected_3, @enigma.decrypt("!@$^keder ohulw!", "02715", "040895")
   end
+
+  def test_can_encrypt_with_default_params
+    expected = {:encryption=>"njhauesdxq !!!",
+                :key=>"02715",
+                :date=>"140919"}
+
+    assert_equal expected, @enigma.encrypt("hello world!!!", "02715")
+
+    # RandomNumberGenerator.stub(:generate_random_key).returns("33351")
+    # rand_key = RandomNumberGenerator.generate_random_key
+    # rand_key.stub(:generate_random_key, "33351")
+    # expected_2 = {:encryption=>"rpzjykjmawr", :key=>"33351", :date=>"140919"}
+    #
+    # assert_equal expected_2, @enigma.encrypt("hello world")
+
+    # test below needs filled out
+    # assert_equal ({enigma.encrypt("hello world")
+  end
+
+  # def test_can_decrypt_with_default_params
+  #   assert_equal ({}), @enigma.decrypt(encrypted[:encryption], "02715")
+  # end
 
 end
