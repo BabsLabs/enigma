@@ -63,7 +63,7 @@ class EnigmaTest < Minitest::Test
     expected_7 = {
       encryption: "!fxvvwuh:)!",
       key: "80111",
-      date: "21x0484"
+      date: "210484"
     }
     assert_equal expected_7, @enigma.encrypt("!Chester:)!", "80111", "210484")
   end
@@ -86,6 +86,13 @@ class EnigmaTest < Minitest::Test
                 date: "040895"
                 }
     assert_equal expected_3, @enigma.decrypt("!@$^keder ohulw!", "02715", "040895")
+
+    expected_4 = {
+      decryption: "!chester:)!",
+      key: "80111",
+      date: "210484"
+    }
+    assert_equal expected_4, @enigma.decrypt("!fxvvwuh:)!", "80111", "210484")
   end
 
   def test_can_encrypt_with_default_params
