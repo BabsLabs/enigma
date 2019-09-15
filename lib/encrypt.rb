@@ -2,6 +2,7 @@ require_relative 'enigma'
 require_relative 'date'
 require_relative 'random_number_generator'
 
+# open the first command line arg
 handle = File.open(ARGV[0], "r")
 
 incoming_text = handle.read
