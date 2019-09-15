@@ -59,6 +59,13 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected_6, @enigma.encrypt("@!$%iello world!", "02715", "040895")
+
+    expected_7 = {
+      encryption: "!fxvvwuh:)!",
+      key: "80111",
+      date: "21x0484"
+    }
+    assert_equal expected_7, @enigma.encrypt("!Chester:)!", "80111", "210484")
   end
 
   def test_can_make_decryption_hash
