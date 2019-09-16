@@ -1,6 +1,5 @@
 require './test/test_helper'
 require './lib/enigma'
-require './lib/alphabet'
 require './lib/encryptionable'
 require './lib/decryptionable'
 require './lib/date'
