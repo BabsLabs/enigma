@@ -29,7 +29,7 @@ module Decryptionable
     shift_array = [shift_a, shift_b, shift_c, shift_d]
 
     # create our alphabet array to shift things by
-    alphabet_array = ("a".."z").to_a << " "
+    alphabet_array = Alphabet.alphabet_generator
 
 
     # now the actual shifting of the message
@@ -52,6 +52,7 @@ module Decryptionable
       shift_array.rotate!
     end
 
+    # assign the keys and values to the decryption_hash
     decryption_hash[:decryption]  = decrypted_message.join
     decryption_hash[:key] = key
     decryption_hash[:date] = date
