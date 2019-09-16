@@ -29,7 +29,7 @@ module Encryptionable
     shift_array = [shift_a, shift_b, shift_c, shift_d]
 
     # create our alphabet array to shift things by
-    alphabet_array = ("a".."z").to_a << " "
+    alphabet_array = Alphabet.alphabet_generator
 
 
     # now the actual shifting of the message

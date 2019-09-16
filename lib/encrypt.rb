@@ -22,4 +22,3 @@ writer.write(encrypted_hash[:encryption])
 puts "Created #{ARGV[1]} with the key #{encrypted_hash[:key]} and date #{encrypted_hash[:date]}"
 
 writer.close
-
