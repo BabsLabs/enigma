@@ -1,6 +1,5 @@
 require './test/test_helper'
 require './lib/enigma'
-require './lib/alphabet'
 require './lib/encryptionable'
 require './lib/decryptionable'
 require './lib/date'
@@ -116,6 +115,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_can_decrypt_with_a_key_uses_todays_date
+    #decrypt a message with a key (uses today's date)
     Date.stubs(:generate_todays_date).returns("120919")
     @encrypted = {:encryption => "hello world"}
 
