@@ -37,7 +37,7 @@ module Decryptionable
     # split up our message into individual chars
     downcase_split_message = cyphertext.downcase.split(//)
 
-    # itearte through the characters
+    # iterate through the characters
     decrypted_message = []
     downcase_split_message.each do |letter|
       #check if the character is included in the shift array

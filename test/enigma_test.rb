@@ -1,8 +1,7 @@
 require './test/test_helper'
 require './lib/enigma'
-require './lib/encryptionable'
-require './lib/decryptionable'
 require './lib/date'
+require './lib/crack'
 require './lib/random_number_generator'
 require 'mocha/minitest'
 
