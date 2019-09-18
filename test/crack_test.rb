@@ -1,5 +1,5 @@
 require './test/test_helper'
-require './lib/crack'
+require './lib/crack_class'
 require './lib/enigma'
 require './lib/date'
 require './lib/random_number_generator'

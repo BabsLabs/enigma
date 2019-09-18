@@ -1,18 +1,24 @@
-require_relative 'decryptionable'
-require './lib/date'
+require_relative 'enigma'
+require_relative 'date'
+require_relative 'crack'
+require_relative 'random_number_generator'
 
-class Crack
-  include Decryptionable
+handle = File.open(ARGV[0], "r")
 
-  def crack_helper(cyphertext, date)
-    crack_hash = Hash.new
-    cyphertext_copy = cyphertext
-    until cyphertext_copy[-4..-1] == " end"
-      crack_hash = decryption_helper(cyphertext, key = RandomNumberGenerator.generate_random_key, date)
-      cyphertext_copy = crack_hash[:decryption]
-      # p "#{cyphertext_copy}, #{key}, #{date}" # uncomment this line to watch the crack in progress!!!
-    end
-    crack_hash
-  end
+incoming_text = handle.read
 
-end
+handle.close
+
+message = incoming_text
+
+writer = File.open(ARGV[1], "w")
+
+enigma = Enigma.new
+
+decrypted_hash = enigma.crack(message, ARGV[2])
+
+writer.write(decrypted_hash[:decryption])
+
+puts "Created #{ARGV[1]} with the cracked key #{decrypted_hash[:key]} and date #{decrypted_hash[:date]}"
+
+writer.close

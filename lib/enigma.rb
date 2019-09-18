@@ -1,6 +1,6 @@
 require_relative 'encryptionable'
 require_relative 'decryptionable'
-require_relative 'crack'
+require_relative 'crack_class'
 
 class Enigma < Crack
   include Encryptionable
