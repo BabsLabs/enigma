@@ -1,8 +1,7 @@
 require './test/test_helper'
 require './lib/enigma'
-require './lib/encryptionable'
-require './lib/decryptionable'
 require './lib/date'
+require './lib/crack'
 require './lib/random_number_generator'
 require 'mocha/minitest'
 
@@ -24,6 +23,7 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+    assert_equal expected, @enigma.encryption_helper("hello world", "02715", "040895")
 
     expected_2 = {
       encryption: "keder ohulw!",
@@ -74,6 +74,7 @@ class EnigmaTest < Minitest::Test
                 date: "040895"
                 }
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal expected, @enigma.decryption_helper("keder ohulw", "02715", "040895")
 
     expected_2 = {decryption: "hello world!",
                 key: "02715",
