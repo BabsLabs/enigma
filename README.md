@@ -1,22 +1,56 @@
-This is the README for the Enigma project.
+# Enigma
 
-Enigma is the final project for the Mod 1 program at Turing.
+![Enigma Cracking](https://user-images.githubusercontent.com/38663414/74063417-49f11c80-49e8-11ea-9ac8-80ce62353332.gif)
 
-My self assessment is as follows:
+## Description
 
-Functionality - 3.5
+A series of encryption cracking algorithms designed to mimic Alan Turing's cracking of the German Enigma Machine in World War 2.
 
-I gave myself a 3.5 on functionality because although I can crack the code the process takes a while - especially if I don’t have a date in the crack method. Beyond that I have an Enigma class with encrypt and decrypt methods successfully implemented. In addition I have command lines which work in the described fashion.
+This was done as a solo project over a one week period.
 
-Object Oriented Programming - 3
+## Purpose
 
-I think my OOP is a solid three on this project. I do have 4 classes and they have single responsibilities. I only have 2 methods that are longer than 7 lines and none of my classes are more than 100 lines. In addition my variable names are clear and accurate.
+The purpose of Enigma was to get practice with the fundamentals of test driven development and object oriented programming as well to practice file input and output with Ruby.
 
-Test Driven Development - 4
+## Use
 
-My test names are clear as can be.  The majority of the methods have tests for a number of different test cases beyond the basic interaction pattern. In addition my rake file and simplecov show 100 percent coverage.
+This application comes with a series of command line tools that will be used to encrypt and decrypt a message.
 
-Version Control - 3.5
+Update the `message.txt` file with the message you would like to either encode or decode. You can then encrypt the message or decrypt the message by using the appropriate command line prompt.
 
-I have 40 commits and 11 pull requests. It feels like you really don’t need to make as many pull requests when working on a project alone but I do understand why it Is a good habit to get into. That being said I still tried to make my commit messages clear and even added some comments to pull requests.
+The first command line uses `encrypt.rb` and takes two command line arguments. The first is an existing file that contains a message to encrypt. The second is a file where your program should write the encrypted message
 
+The second command line prompt uses `decrpyt.rb` and takes four command line arguments. The first is the path and name of an existing file that contains an encrypted message. The second argument is a file path and name where the program should write the decrypted message. The third is the key to be used for decryption and the fourth argument is the date to be used for decryption.
+
+An example of command line prompt use and output is as follows:
+```
+$ ruby ./lib/encrypt.rb message.txt encrypted.txt
+Created 'encrypted.txt' with the key 82648 and date 240818
+$ ruby ./lib/decrypt.rb encrypted.txt decrypted.txt 82648 240818
+Created 'decrypted.txt' with the key 82648 and date 240818
+```
+
+## Installation
+
+1. Clone down the the repo using `git clone git@github.com:BabsLabs/enigma.git`
+1. Change into the project directory
+1. That’s it!
+
+## Technologies
+1. Ruby
+1. File IO
+1. Minitest
+1. Mocha
+1. SimpleCov
+
+## Testing
+
+All testing was done with Minitest. Some test features were mocked with the Mocha mocking and stubbing library. Test coverage was monitored by SimpleCov.
+
+### Running tests
+
+To run tests use the `ruby test/<PATH_TO_TEST>` formula.
+
+#### Testing Notes
+1. Running the `test/crack_test.rb` file will result in the computer trying to crack the Enigma code. This can take an unknown amount of time and is a very CPU intensive process. To cancel a test when in progress use the `^ + C` command.
+1. The `test/enigma_test.rb` file will need to be updated with the current date to properly pass. Please see the comments in the test file for more information.

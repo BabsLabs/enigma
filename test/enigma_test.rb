@@ -101,7 +101,7 @@ class EnigmaTest < Minitest::Test
     Date.stubs(:generate_todays_date).returns("140919")
     expected = {:encryption=>"njhauesdxq !!!",
                 :key=>"02715",
-                :date=>"140919"} # this date needs to always be changed to todays date... do I import my date.generate_todays_date into the test?
+                :date=>"140919"} # this date needs to always be changed to todays date
 
     assert_equal expected, @enigma.encrypt("hello world!!!", "02715")
   end
