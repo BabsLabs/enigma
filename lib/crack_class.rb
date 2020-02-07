@@ -10,7 +10,7 @@ class Crack
     until cyphertext_copy[-4..-1] == " end"
       crack_hash = decryption_helper(cyphertext, key = RandomNumberGenerator.generate_random_key, date)
       cyphertext_copy = crack_hash[:decryption]
-      # p "#{cyphertext_copy}, #{key}, #{date}" # uncomment this line to watch the crack in progress!!!
+      p "Cracking: CypherText: #{cyphertext_copy}, Key: #{key}, Date: #{date}" # uncomment this line to watch the crack in progress!!!
     end
     crack_hash
   end
